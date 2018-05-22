@@ -33,6 +33,8 @@
 
 05-22-2018 10:21pm - Created handler for app.get('/api/v1/books').
 
+05-22-2018 12:47am - Got books to render to the DOM.
+
 ## Credits and Collaborations
 
 * Oscar Otero - [JQuery Quick API Reference](https://oscarotero.com/jquery/)
