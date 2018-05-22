@@ -17,9 +17,13 @@ app.get('/api/v1/books', (req, res) => {
   let SQL = `SELECT book_id, title, author, image_url FROM books;`;
 
   client.query(SQL)
-    .then(result => res.send(result));
+    .then(result => console.log(result.rows))
+    .then(result => res.send(result.rows));
 });
 
 app.get('*', (req, res) => res.status(403).send('This route does not exist'));
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
+
+// Mac: export DATABASE_URL=postgres://localhost:5432/books_app
+// Windows: export DATABASE_URL=postgres://postgres:password@localhost:5432/books_app
