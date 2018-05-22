@@ -29,6 +29,8 @@
 ## Change Log
 05-21-2018 1:49pm - Added README file to repo.
 
+05-21-2014 6:17pm - Added out.sql file.
+
 ## Credits and Collaborations
 
 * Oscar Otero - [JQuery Quick API Reference](https://oscarotero.com/jquery/)
