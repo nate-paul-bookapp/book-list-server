@@ -29,6 +29,8 @@
 ## Change Log
 05-21-2018 1:49pm - Added README file to repo.
 
+05-22-2018 10:21pm - Created handler for app.get('/api/v1/books').
+
 ## Credits and Collaborations
 
 * Oscar Otero - [JQuery Quick API Reference](https://oscarotero.com/jquery/)

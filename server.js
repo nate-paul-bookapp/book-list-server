@@ -13,7 +13,12 @@ client.on('error', err => console.error(err));
 
 app.use(cors());
 
-app.get('/', (req, res) => res.send('Testing 1, 2, 3'));
+app.get('/api/v1/books', (req, res) => {
+  let SQL = `SELECT book_id, title, author, image_url FROM books;`;
+
+  client.query(SQL)
+    .then(result => res.send(result));
+});
 
 app.get('*', (req, res) => res.status(403).send('This route does not exist'));
 
