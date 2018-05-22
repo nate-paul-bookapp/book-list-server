@@ -7,7 +7,9 @@ const pg = require('pg');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const conString = 'postgres://localhost:5432';
+// const conString = 'postgres://localhost:5432';
+const conString = 'postgres://postgres:password@localhost:5432/postgres';
+
 const client = new pg.Client(process.env.DATABASE_URL || conString);
 client.connect();
 client.on('error', err => console.error(err));
