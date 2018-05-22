@@ -27,7 +27,7 @@
 * SMACSS/RWD design principles
 
 ## Change Log
-05-21-2018 1:49pm - Added README file to repo.
+05-21-2018 1:49pm - Added README.md file to repo.
 
 05-21-2014 6:17pm - Added out.sql file.
 
