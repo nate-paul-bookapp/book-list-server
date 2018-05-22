@@ -31,6 +31,8 @@
 
 05-21-2014 6:17pm - Added out.sql file.
 
+05-22-2018 10:21pm - Created handler for app.get('/api/v1/books').
+
 ## Credits and Collaborations
 
 * Oscar Otero - [JQuery Quick API Reference](https://oscarotero.com/jquery/)
