@@ -31,9 +31,11 @@
 
 05-21-2014 6:17pm - Added out.sql file.
 
-05-22-2018 10:21pm - Created handler for app.get('/api/v1/books').
+05-22-2018 10:21am - Created handler for app.get('/api/v1/books').
 
-05-22-2018 12:47am - Got books to render to the DOM.
+05-22-2018 12:47pm - Got books to render to the DOM.
+
+5-23-2018 10:57am - Added .get /api/vi/books error handling
 
 ## Credits and Collaborations
 

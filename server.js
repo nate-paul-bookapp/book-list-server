@@ -18,13 +18,29 @@ app.use(cors());
 
 app.get('/', (req, res) => res.redirect('http://localhost:8080'));
 
+app.get('/api/v1/books/:id', (req, res) => {
+  console.log('HI!!!', req.params.id);
+
+  let SQL = 'SELECT * FROM books WHERE book_id= $1;';
+  let values = [req.params.id];
+
+  client.query(SQL, values)
+    .then(result => res.send(result.rows))
+    .catch(result => {
+      console.log('Error', result);
+      return res.sendStatus(404).send(result);
+    });
+});
+
 app.get('/api/v1/books', (req, res) => {
   let SQL = `SELECT * FROM books ORDER BY title;`;
-
   client.query(SQL)
     .then(result => res.send(result.rows))
     .catch(result => res.sendStatus(404).send(result));
 });
+
+
+
 
 app.get('*', (req, res) => res.status(403).send('This route does not exist'));
 
