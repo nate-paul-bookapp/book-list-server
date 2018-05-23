@@ -22,7 +22,8 @@ app.get('/api/v1/books', (req, res) => {
   let SQL = `SELECT * FROM books ORDER BY title;`;
 
   client.query(SQL)
-    .then(result => res.send(result.rows));
+    .then(result => res.send(result.rows))
+    .catch(result => res.sendStatus(404).send(result));
 });
 
 app.get('*', (req, res) => res.status(403).send('This route does not exist'));
