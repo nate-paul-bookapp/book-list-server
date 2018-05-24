@@ -15,6 +15,7 @@ const client = new pg.Client(process.env.DATABASE_URL || conString);
 client.connect();
 client.on('error', err => console.error(err));
 
+
 //root request
 app.get('/', (req, res) => {
   let SQL = `SELECT * FROM books ORDER BY title;`;
@@ -25,6 +26,18 @@ app.get('/', (req, res) => {
     .catch(result => res.sendStatus(404).send(result));
 });
 
+app.get('/api/v1/books/:id', (req, res) => {
+  let SQL = 'SELECT * FROM books WHERE book_id = $1;';
+  let values = [req.params.id];
+
+  client.query(SQL, values)
+    .then(result => res.send(result.rows))
+    .catch(result => res.sendStatus(404).send(result));
+});
+
+// app.post('post-new-book', (req, res) => {
+//   console.log(req);
+// });
 
 //catch-all request
 app.get('*', (req, res) => res.status(403).send('This route does not exist'));

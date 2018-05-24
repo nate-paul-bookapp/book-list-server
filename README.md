@@ -39,6 +39,8 @@
 
 5-23-2018 5:39pm - Restructring Routes through Page.js
 
+5-23-2018 7:30pm - Added Additional Client Routing
+
 ## Credits and Collaborations
 
 * Oscar Otero - [JQuery Quick API Reference](https://oscarotero.com/jquery/)
