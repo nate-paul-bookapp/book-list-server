@@ -37,6 +37,8 @@
 
 5-23-2018 10:57am - Added .get /api/vi/books error handling
 
+5-23-2018 5:39pm - Restructring Routes through Page.js
+
 ## Credits and Collaborations
 
 * Oscar Otero - [JQuery Quick API Reference](https://oscarotero.com/jquery/)
