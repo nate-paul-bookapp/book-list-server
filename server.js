@@ -32,13 +32,13 @@ app.get('/api/v1/books/:id', (req, res) => {
     .catch(result => res.sendStatus(404).send(result));
 });
 
-app.post('/submitted', (req, res) => {
+app.post('/submitted', express.urlencoded({extended: true}), (req, res) => {
   let {title, author, isbn, image_url, description} = req.body;
+  let SQL = `INSERT INTO books(title, author, isbn, image_url, description) VALUES($1, $2, $3, $4, $5);`;
   let values = [title, author, isbn, image_url, description];
 
-  let SQL = `INSERT INTO books(title, author, isbn, image_url, description) VALUES($1, $2, $3, $4, $5);`;
-
   client.query(SQL, values)
+  //TODO SEND BACK book_id
     .then(result => res.send(result.rows))
     .catch(result => res.sendStatus(404).send(result));
 
