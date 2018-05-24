@@ -41,6 +41,8 @@
 
 5-23-2018 7:30pm - Added Additional Client Routing
 
+5-24-2018 1:25pm - Added Post functionality.
+
 ## Credits and Collaborations
 
 * Oscar Otero - [JQuery Quick API Reference](https://oscarotero.com/jquery/)
