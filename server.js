@@ -12,14 +12,14 @@ const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
 client.on('error', err => console.error(err));
 
-//root request
-app.get('/', (req, res) => {
+
+app.get('/api/v1/books', (req, res) => {
   let SQL = `SELECT * FROM books ORDER BY title;`;
   client.query(SQL)
     .then(result => {
       res.send(result.rows);
     })
-    .catch(result => res.sendStatus(404).send(result));
+    .catch(console.error);
 });
 
 // Retrieve a single book based on ID
@@ -30,6 +30,15 @@ app.get('/api/v1/books/:id', (req, res) => {
   client.query(SQL, values)
     .then(result => res.send(result.rows))
     .catch(result => res.sendStatus(404).send(result));
+});
+
+app.delete('/api/v1/books/:id', (req, res) => {
+  let SQL = 'DELETE FROM books WHERE book_id = $1;';
+  let values = [req.params.id];
+
+  client.query(SQL, values)
+    .then(result => res.send(result.rows))
+    .catch(console.error);
 });
 
 app.post('/submitted', express.urlencoded({extended: true}), (req, res) => {
@@ -50,4 +59,4 @@ app.get('*', (req, res) => res.status(403).send('This route does not exist'));
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 
 // Mac: export DATABASE_URL=postgres://localhost:5432/
-// Windows: export DATABASE_URL=postgres://postgres:password@localhost:5432/books_app
+// Windows: export DATABASE_URL=postgres://postgres:password@localhost:5432/postgres
