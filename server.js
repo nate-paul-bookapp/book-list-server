@@ -44,6 +44,16 @@ app.post('/submitted', express.urlencoded({extended: true}), (req, res) => {
 
 });
 
+app.delete('/api/v1/books', (req, res) => {
+  console.log('on the server');
+  let SQL = `DELETE FROM books WHERE title = $1`;
+  let values = [req.body];
+
+  client.query(SQL, values)
+    .then(result => console.log(result))
+    .catch(result => console.log(`didn't work: ${result}`));
+});
+
 //catch-all request
 app.get('*', (req, res) => res.status(403).send('This route does not exist'));
 
